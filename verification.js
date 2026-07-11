@@ -5,8 +5,8 @@ const result = document.querySelector("#result");
 async function searchStudent() {
 
     const registrationNumber = registration.value;
-    const response = await fetch(`http://localhost:5000/student/${registrationNumber}`);
-
+    const response = await fetch(`https://realworldproject-production.up.railway.app/student/${registrationNumber}`);
+    
     if (!response.ok) {
         result.innerHTML = `
         <div class="alert alert-danger mt-4">
