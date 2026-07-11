@@ -1,4 +1,4 @@
-require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect("mongodb+srv://adityasatapathy1127_db_user:V26HooPWPWrVY6jy@cluster0.6rwo4zd.mongodb.net/vtu?retryWrites=true&w=majority&appName=Cluster0")
     .then(function () {
         console.log("MongoDB Connected");
     })
@@ -22,22 +22,34 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 const studentSchema = new mongoose.Schema({
+    studentId: String,
     name: String,
     registration: String,
     course: String,
-    email: String,
-    phone: String
+
+    rollNumber: String,
+    enrollmentNumber: String,
+    academicSession: String,
+
+    specialization: String,
+    status: String,
+
+
 });
 
 const Student = mongoose.model("Student", studentSchema);
 
 
 const student2 = new Student({
+    studentId: "103840",
     name: "Rahul Kumar",
     registration: "VTU002",
-    course: "Btech in Computer Science",
-    email: "rahu23@gmail.com",
-    phone:"9889838483"
+    course: "Bachelor of Technology",
+    specialization: "Computer Science",
+    dualSpecialization: "NA",
+    status: "RESULT PASS",
+    email: "rahul@gmail.com",
+    phone: "9876543210"
 });
 
 const student3 = new Student({
@@ -45,7 +57,7 @@ const student3 = new Student({
     registration: "VTU003",
     course: "Btech in Computer Science",
     email: "aakashrajp223@gmail.com",
-    phone:"7874333929"
+    phone: "7874333929"
 });
 
 const student4 = new Student({
@@ -53,7 +65,7 @@ const student4 = new Student({
     registration: "VTU004",
     course: "Btech in Computer Science",
     email: "sidhujajf223@gmail.com",
-    phone:"5576738829"
+    phone: "5576738829"
 });
 
 const student5 = new Student({
@@ -61,7 +73,7 @@ const student5 = new Student({
     registration: "VTU005",
     course: "Btech in Computer Science",
     email: "aryanpau@gmail.com",
-    phone:"9079594934"
+    phone: "9079594934"
 });
 
 // Student.insertMany([
@@ -113,7 +125,7 @@ app.get("/student/:registration", function (req, res) {
 app.post("/apply", function (req, res) {
 
     Student.findOne({
-        registration: req.body.registration
+       registration: req.body.enrollment
     })
         .then(function (existingStudent) {
 
@@ -127,11 +139,20 @@ app.post("/apply", function (req, res) {
 
             const student = new Student({
 
+                
+                rollNumber: req.body.rollNumber,
+
+                studentId: "VTU" + Math.floor(1000 + Math.random() * 9000),
+
+                enrollmentNumber: req.body.enrollment,
+
+                academicSession: req.body.academicSession,
                 name: req.body.name,
-                registration: req.body.registration,
+                registration: req.body.enrollment,
                 course: req.body.course,
-                email: req.body.email,
-                phone: req.body.phone
+
+                specialization: "Computer Science",
+                status: "RESULT PASS",
 
             });
 

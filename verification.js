@@ -19,26 +19,64 @@ async function searchStudent() {
     const data = await response.json();
 
     result.innerHTML = `
-<div class="card shadow mt-4 mx-auto" style="max-width:500px;">
-    <div class="card-body">
+<div class="card shadow mx-auto mt-5" style="max-width:1200px; width:95%;">
 
-        <h5 class="text-success text-center mb-3">
-            ✅ Student Verified
-        </h5>
+    <div class="card-body p-4">
 
-        <h3 class="text-center mb-3">${data.name}</h3>
+        <h3 class="mb-4 fw-bold">Student Details</h3>
 
+       <div class="card shadow-sm mx-auto mt-5" style="max-width:720px;">
+    <div class="card-body p-5">
+
+        <h3 class="mb-4">Student Details</h3>
         <hr>
 
-        <p><b>Registration :</b> ${data.registration}</p>
+        <div class="row mb-3">
+    <div class="col-5 fw-semibold">Roll Number</div>
+    <div class="col-7">${data.rollNumber}</div>
+</div>
 
-        <p><b>Course :</b> ${data.course}</p>
+        <div class="row mb-3">
+            <div class="col-5 fw-semibold">Student ID</div>
+            <div class="col-7">${data.studentId}</div>
+        </div>
 
-        <p><b>Email :</b> ${data.email}</p>
+        <div class="row mb-3">
+            <div class="col-5 fw-semibold">Student Name</div>
+            <div class="col-7">${data.name}</div>
+        </div>
 
-        <p><b>Phone :</b> ${data.phone}</p>
+        <div class="row mb-3">
+            <div class="col-5 fw-semibold">Course</div>
+            <div class="col-7">${data.course}</div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-5 fw-semibold">Specialization</div>
+            <div class="col-7">${data.specialization}</div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-5 fw-semibold">Status</div>
+            <div class="col-7 text-success fw-bold">${data.status}</div>
+        </div>
+
+    <div class="row mb-3">
+    <div class="col-5 fw-semibold">Enrollment Number</div>
+    <div class="col-7">${data.enrollmentNumber}</div>
+</div>
+
+        <div class="row mb-3">
+    <div class="col-5 fw-semibold">Academic Session</div>
+    <div class="col-7">${data.academicSession}</div>
+</div>
+
 
     </div>
+</div>
+
+    </div>
+
 </div>
 `;
 }
