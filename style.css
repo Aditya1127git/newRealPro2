@@ -393,3 +393,36 @@ html{
 .diploma-container li{
     margin-bottom:10px;
 }
+
+.verification{
+    width:100%;
+    min-height:70vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+    text-align:center;
+}
+.verification h1{
+    font-size:50px;
+    color:#163579;
+    margin-bottom:15px;
+}
+.verification p{
+    font-size:18px;
+    color:#666;
+    margin-bottom:35px;
+}
+
+.input-group{
+    width:200px;
+    max-width: 50%;
+    margin:0 auto;
+}
+
+.apply-form{
+    max-width:600px;
+    margin:70px auto;
+    padding:30px;
+}
