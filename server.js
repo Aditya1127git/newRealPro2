@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
 
 
-mongoose.connect("mongodb+srv://adityasatapathy1127_db_user:V26HooPWPWrVY6jy@cluster0.6rwo4zd.mongodb.net/vtu?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect("mongodb+srv://vrindavanuniversity_db_user:h43QWMUT4GOPqD7J@cluster0.jtprnn5.mongodb.net/vtu?retryWrites=true&w=majority&appName=Cluster0")
     .then(function () {
         console.log("MongoDB Connected");
     })
