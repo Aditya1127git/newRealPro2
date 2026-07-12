@@ -7,6 +7,23 @@ body {
 
     color:rgb(10, 3, 3);
 }
+
+.logo-title{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-title img{
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+.logo-title h1{
+    margin: 0;
+}
+
 .header{
     display: flex;
     flex-direction: column;
@@ -24,6 +41,39 @@ body {
     margin: 0;
     letter-spacing: 1px;
     text-align: center;
+}
+
+.affiliation-section{
+    width:70%;
+    margin:50px auto;
+    text-align:left;
+    line-height:2;
+}
+
+.affiliation-section h2{
+    text-align:center;
+    color:#173f8a;
+    margin-bottom:25px;
+    font-size:32px;
+}
+
+.affiliation-section p{
+    font-size:18px;
+    margin:8px 0;
+    color:#333;
+}
+
+.affiliation-section strong{
+    color:#173f8a;
+}
+
+.affiliation-section a{
+    color:#ff6600;
+    text-decoration:none;
+}
+
+.affiliation-section a:hover{
+    text-decoration:underline;
 }
 
 .subtitle{
