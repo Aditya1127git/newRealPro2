@@ -7,44 +7,55 @@ const rollNumber = document.querySelector("#rollNumber");
 
 const message = document.querySelector("#message");
 
-applyForm.addEventListener("submit", async function (event) {
+const params = new URLSearchParams(window.location.search);
+const isOwner = params.get("owner") === "1";
 
-    event.preventDefault();
+if (!isOwner) {
+    const protectedMessage = document.createElement("div");
+    protectedMessage.className = "alert alert-warning mt-3";
+    protectedMessage.innerHTML = "This page is restricted to the owner. Use the owner access link to continue.";
+    message.appendChild(protectedMessage);
+    applyForm.style.display = "none";
+} else {
+    applyForm.addEventListener("submit", async function (event) {
 
-    const studentData = {
-        name: name.value,
-        enrollment: enrollment.value,
-        course: course.value,
-        rollNumber: rollNumber.value
-    };
+        event.preventDefault();
 
-    const response = await fetch("https://realworldproject-production.up.railway.app/apply", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(studentData)
+        const studentData = {
+            name: name.value,
+            enrollment: enrollment.value,
+            course: course.value,
+            rollNumber: rollNumber.value
+        };
+
+        const response = await fetch("https://realworldproject-production.up.railway.app/apply", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(studentData)
+        });
+
+        if (response.ok) {
+
+            message.innerHTML = `
+            <div class="alert alert-success mt-3">
+                Application Submitted Successfully
+            </div>
+            `;
+
+            applyForm.reset();
+
+        } else {
+
+            const error = await response.json();
+
+            message.innerHTML = `
+            <div class="alert alert-danger mt-3">
+                ${error.message}
+            </div>
+            `;
+        }
+
     });
-
-    if (response.ok) {
-
-        message.innerHTML = `
-        <div class="alert alert-success mt-3">
-            Application Submitted Successfully
-        </div>
-        `;
-
-        applyForm.reset();
-
-    } else {
-
-        const error = await response.json();
-
-        message.innerHTML = `
-        <div class="alert alert-danger mt-3">
-            ${error.message}
-        </div>
-        `;
-    }
-
-});
+}

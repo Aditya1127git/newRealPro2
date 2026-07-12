@@ -44,7 +44,7 @@ const Student = mongoose.model("Student", studentSchema);
 const student2 = new Student({
     studentId: "103840",
     name: "Rahul Kumar",
-    registration: "VTU002",
+    registration: "NTI002",
     course: "Bachelor of Technology",
     specialization: "Computer Science",
     dualSpecialization: "NA",
@@ -55,7 +55,7 @@ const student2 = new Student({
 
 const student3 = new Student({
     name: "Akash Rajput",
-    registration: "VTU003",
+    registration: "NTI003",
     course: "Btech in Computer Science",
     email: "aakashrajp223@gmail.com",
     phone: "7874333929"
@@ -63,7 +63,7 @@ const student3 = new Student({
 
 const student4 = new Student({
     name: "Sidharth sahoo",
-    registration: "VTU004",
+    registration: "NTI004",
     course: "Btech in Computer Science",
     email: "sidhujajf223@gmail.com",
     phone: "5576738829"
@@ -71,7 +71,7 @@ const student4 = new Student({
 
 const student5 = new Student({
     name: "aryan paul",
-    registration: "VTU005",
+    registration: "NTI005",
     course: "Btech in Computer Science",
     email: "aryanpau@gmail.com",
     phone: "9079594934"
@@ -143,7 +143,7 @@ app.post("/apply", function (req, res) {
                 
                 rollNumber: req.body.rollNumber,
 
-                studentId: "VTU" + Math.floor(1000 + Math.random() * 9000),
+                studentId: "NTI" + Math.floor(1000 + Math.random() * 9000),
 
                 enrollmentNumber: req.body.enrollment,
 
@@ -174,7 +174,7 @@ app.post("/apply", function (req, res) {
 });
 
 app.get("/", function (req, res) {
-    res.send("Welcome to VTU backend");
+    res.send("Welcome to NTI backend");
 });
 
 app.listen(port, function () {
