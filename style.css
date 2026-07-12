@@ -30,7 +30,7 @@ body {
     margin-top: 10px;
     font-size: 15px;
     color: #555;
-    font-family:'Courier New', Courier, monospace
+    font-family:'Courier New', Courier, monospace;
     text-align: center;
     line-height: 1.6;
     font-weight: 500;
@@ -457,4 +457,133 @@ html{
 
 .card{
     border-radius:10px;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width:768px){
+
+.top-number{
+    padding:10px 20px;
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+}
+
+.left{
+    flex-direction:column;
+    gap:8px;
+    align-items:center;
+}
+
+.header{
+    padding:15px;
+}
+
+.header h1{
+    font-size:22px;
+    line-height:1.3;
+}
+
+.subtitle{
+    font-size:13px;
+    padding:0 15px;
+}
+
+.menu{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    padding:10px;
+}
+
+nav{
+    width:100%;
+    margin:0;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+
+nav ul li a{
+    display:block;
+    padding:8px;
+    font-size:12px;
+}
+
+.hero{
+    height:360px;
+}
+.arrow{
+    width:40px;
+    height:40px;
+    font-size:22px;
+}
+
+.hero-content{
+    left:15px;
+    right:15px;
+    top:28%;
+    max-width:90%;
+}
+
+.hero-content h1{
+    font-size:24px;
+}
+.hero-content p{
+    font-size:13px;
+}
+.director{
+    flex-direction:column;
+    padding:40px 20px;
+}
+
+.director img{
+    width:100%;
+    height:auto;
+}
+
+.director-content{
+    text-align:center;
+}
+
+.courses{
+    padding:40px 20px;
+}
+
+.courses h1{
+    font-size:35px;
+}
+
+.course-card{
+    width:100%;
+}
+
+.footer{
+    padding:40px 20px;
+}
+
+.footer-container{
+    flex-direction:column;
+    gap:30px;
+}
+
+.footer-box{
+    width:100%;
+    text-align:center;
+}
+img{
+    max-width:100%;
+    height:auto;
+}
+
 }
