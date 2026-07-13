@@ -23,7 +23,7 @@ async function searchStudent() {
 
     <div class="card-body p-4">
 
-        <h3 class="mb-4 fw-bold">Student Details</h3>
+        
 
        <div class="card shadow-sm mx-auto mt-5" style="max-width:720px;">
     <div class="card-body p-5">
@@ -36,10 +36,7 @@ async function searchStudent() {
     <div class="col-7">${data.rollNumber}</div>
 </div>
 
-        <div class="row mb-3">
-            <div class="col-5 fw-semibold">Student ID</div>
-            <div class="col-7">${data.studentId}</div>
-        </div>
+   
 
         <div class="row mb-3">
             <div class="col-5 fw-semibold">Student Name</div>
@@ -52,7 +49,7 @@ async function searchStudent() {
         </div>
 
         <div class="row mb-3">
-            <div class="col-5 fw-semibold">Specialization</div>
+            <div class="col-5 fw-semibold">Qualification</div>
             <div class="col-7">${data.specialization}</div>
         </div>
 
@@ -67,7 +64,7 @@ async function searchStudent() {
 </div>
 
         <div class="row mb-3">
-    <div class="col-5 fw-semibold">Academic Session</div>
+    <div class="col-5 fw-semibold">Validation Period</div>
     <div class="col-7">${data.academicSession}</div>
 </div>
 

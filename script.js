@@ -41,3 +41,26 @@ function prevSlide(){
     showSlide(currentSlide);
 }
 
+const categoryCards = document.querySelectorAll('.course-category-card');
+categoryCards.forEach(function(card){
+    const toggle = card.querySelector('.course-toggle');
+    if(toggle){
+        toggle.addEventListener('click', function(){
+            const isOpen = card.classList.contains('is-open');
+            categoryCards.forEach(function(item){
+                item.classList.remove('is-open');
+                const itemToggle = item.querySelector('.course-toggle');
+                if(itemToggle){
+                    itemToggle.textContent = 'Read More';
+                    itemToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+            if(!isOpen){
+                card.classList.add('is-open');
+                toggle.textContent = 'Hide';
+                toggle.setAttribute('aria-expanded', 'true');
+            }
+        });
+    }
+});
+
