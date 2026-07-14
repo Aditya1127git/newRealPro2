@@ -13,13 +13,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
 
 
-mongoose.connect("mongodb+srv://vrindavanuniversity_db_user:h43QWMUT4GOPqD7J@cluster0.jtprnn5.mongodb.net/vtu?retryWrites=true&w=majority&appName=Cluster0")
-    .then(function () {
-        console.log("MongoDB Connected");
-    })
-    .catch(function (err) {
-        console.log(err);
-    });
+mongoose.connect(process.env.MONGODB_URI)
+.then(() => {
+    console.log("✅ MongoDB Connected");
+})
+.catch((err) => {
+    console.log(err);
+});
 
 
 const studentSchema = new mongoose.Schema({
