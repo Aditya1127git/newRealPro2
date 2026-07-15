@@ -99,9 +99,13 @@ app.get("/students", function (req, res) {
 });
 
 app.get("/student/:registration", function (req, res) {
-
+    const searchValue=req.params.registration;
     Student.findOne({
-        registration: req.params.registration
+        $or: [
+            {rollNumber: searchValue},
+            {enrollmentNumber: searchValue}
+        ]
+        
     })
         .then(function (student) {
 
